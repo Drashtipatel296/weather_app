@@ -1,58 +1,63 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:weather_app/screens/home/home_screeen.dart';
+
+import '../../controller/weather_provider.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    WeatherProvider weatherProviderTrue = Provider.of<WeatherProvider>(context);
+
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color(0xff0A0E33),
       body: Padding(
-        padding: const EdgeInsets.only(top: 130,left: 15),
+        padding: const EdgeInsets.only(top: 160,left: 30),
         child: Column(
           children: [
-            Text(
+            const Text(
               'Discover the',
               style: TextStyle(
                   color: Colors.white, fontSize: 33, fontWeight: FontWeight.bold),
             ),
-            Text(
+            const Text(
               'Weather In Your City',
               style: TextStyle(
                   color: Colors.white, fontSize: 33, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 30,),
-            Container(
+            const SizedBox(height: 35,),
+            SizedBox(
               height: 380,
               width: 380,
               child: Image.asset('assets/img/splash.png',fit: BoxFit.cover,),
             ),
-            SizedBox(height: 30,),
-            Text(
+            const SizedBox(height: 35,),
+            const Text(
               'Get to your weather maps and',
               style: TextStyle(
                   color: Colors.grey, fontSize: 18),
             ),
-            Text(
+            const Text(
               'radar preciption forcast',
               style: TextStyle(
                   color: Colors.grey, fontSize: 18),
             ),
-            SizedBox(height: 40,),
+            const SizedBox(height: 45,),
             InkWell(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const HomeScreen(),),);
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  HomeScreeen(weatherProvider: weatherProviderTrue,),),);
               },
               child: Container(
                 height: 60,
                 width: 350,
                 decoration: BoxDecoration(
-                  color: Color(0xffD1841B),
+                  color: const Color(0xffD1841B),
                   borderRadius: BorderRadius.circular(15),
                 ),
                 alignment: Alignment.center,
-                child: Text('GET STARTED',style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w500),),
+                child: const Text('GET STARTED',style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w500),),
               ),
             ),
           ],

@@ -1,18 +1,23 @@
-import 'dart:convert';
+import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
-import '../model/weather_model.dart';
 
 
-class WeatherApiHelper
-{
-  WeatherModel? weathermodel;
-  Future<WeatherModel?> weatherApiCalling(String location)
-  async {
-    String apiLink = "https://api.weatherapi.com/v1/current.json?key=6e46df35e2804af1a9775258230904&q=$location&aqi=no";
-    Uri uri = Uri.parse(apiLink);
-    var response = await http.get(uri);
-    var weatherJson = jsonDecode(response.body);
-    weathermodel = WeatherModel.fromJson(weatherJson);
-    return weathermodel;
+// 567a1dc4f6e243c78b9140923242606
+class ApiServices{
+  static final ApiServices apiServices = ApiServices._singleton();
+  ApiServices._singleton();
+
+  Future<String?> apiCalling(String location) async {
+    String apiData = 'https://api.weatherapi.com/v1/forecast.json?key=567a1dc4f6e243c78b9140923242606&q=$location';
+    Uri uri = Uri.parse(apiData);
+    Response response = await http.get(uri);
+
+    if(response.statusCode == 200){
+      print("Api called successfully");
+      return response.body;
+    }
+    else{
+      return null;
+    }
   }
 }
