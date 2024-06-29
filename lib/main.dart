@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/screens/home/home_screeen.dart';
+import 'package:weather_app/screens/splash/splash_screen.dart';
 
 import 'controller/weather_provider.dart';
 
@@ -19,11 +19,9 @@ class WeatherApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    WeatherProvider weatherProviderTrue = Provider.of<WeatherProvider>(context);
-
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreeen(weatherProvider: weatherProviderTrue,),
+      home: SplashScreen(),
     );
   }
 }

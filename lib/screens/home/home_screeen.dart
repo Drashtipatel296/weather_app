@@ -91,10 +91,11 @@ class HomeScreeen extends StatelessWidget {
                           fit: BoxFit.fitHeight,
                           image: weatherProvider.weather!.currentModal.isDay == 1
                               ? AssetImage('assets/img/2.webp')
-                              : AssetImage('assets/img/night.avif'),
+                              : AssetImage('assets/img/1.png'),
                         ),
                       ),
                     ),
+                    SizedBox(height: 5,),
                     Text(
                       weatherProvider.weather!.currentModal.conditionModel.text,
                       style: TextStyle(color: Colors.white, fontSize: 18),
@@ -110,14 +111,11 @@ class HomeScreeen extends StatelessWidget {
                           fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      weatherProvider.weather!.currentModal.tempC.toString(),
+                      '${weatherProvider.weather!.currentModal.tempC.toString()} °C',
                       style: const TextStyle(
                           color: Colors.white,
                           fontSize: 60,
                           fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(
-                      height: 10,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -168,7 +166,7 @@ class HomeScreeen extends StatelessWidget {
                                 width: 75,
                                 decoration: const BoxDecoration(
                                   image: DecorationImage(
-                                    image: AssetImage('assets/img/bg2.gif'),
+                                    image: AssetImage('assets/img/wind-removebg-preview (1).png'),
                                   ),
                                 ),
                               ),
@@ -196,20 +194,23 @@ class HomeScreeen extends StatelessWidget {
                           child: Column(
                             children: [
                               Container(
-                                height: 76,
-                                width: 75,
+                                height: 70,
+                                width: 60,
                                 decoration: const BoxDecoration(
                                   image: DecorationImage(
-                                    image: AssetImage('assets/img/bg2.gif'),
+                                    image: AssetImage('assets/img/hum1-removebg-preview (1).png'),
                                   ),
                                 ),
+                              ),
+                              const SizedBox(
+                                height: 5,
                               ),
                                Text(
                                 weatherProvider.weather!.currentModal.humidity.toString(),
                                 style: TextStyle(color: Colors.white),
                               ),
                               const SizedBox(
-                                height: 5,
+                                height: 10,
                               ),
                               const Text(
                                 'Humidinity',
@@ -240,19 +241,19 @@ class HomeScreeen extends StatelessWidget {
                                 width: 75,
                                 decoration: const BoxDecoration(
                                   image: DecorationImage(
-                                    image: AssetImage('assets/img/bg2.gif'),
+                                    image: AssetImage('assets/img/uv-removebg-preview.png'),
                                   ),
                                 ),
                               ),
-                              const Text(
-                                '90%',
+                              Text(
+                                weatherProvider.weather!.currentModal.uv.toString(),
                                 style: TextStyle(color: Colors.white),
                               ),
                               const SizedBox(
                                 height: 5,
                               ),
                               const Text(
-                                'Sunny',
+                                'UV',
                                 style: TextStyle(color: Colors.white),
                               ),
                             ],
@@ -276,15 +277,15 @@ class HomeScreeen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              const Text(
-                                '90%',
+                               Text(
+                                weatherProvider.weather!.locationModal.lat.toString(),
                                 style: TextStyle(color: Colors.white),
                               ),
                               const SizedBox(
                                 height: 5,
                               ),
                               const Text(
-                                'Wind',
+                                'Lat',
                                 style: TextStyle(color: Colors.white),
                               ),
                             ],
@@ -308,15 +309,15 @@ class HomeScreeen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              const Text(
-                                '90%',
+                              Text(
+                                weatherProvider.weather!.locationModal.lon.toString(),
                                 style: TextStyle(color: Colors.white),
                               ),
                               const SizedBox(
                                 height: 5,
                               ),
                               const Text(
-                                'Huminity',
+                                'Lon',
                                 style: TextStyle(color: Colors.white),
                               ),
                             ],
@@ -334,8 +335,8 @@ class HomeScreeen extends StatelessWidget {
         decoration: const BoxDecoration(
           color: Color(0xff1B1F46),
           borderRadius: BorderRadius.only(
-            topRight: Radius.circular(30),
-            topLeft: Radius.circular(30),
+            topRight: Radius.circular(20),
+            topLeft: Radius.circular(20),
           ),
         ),
         child: const Row(

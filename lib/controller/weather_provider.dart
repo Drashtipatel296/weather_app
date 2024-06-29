@@ -23,9 +23,6 @@ class WeatherProvider extends ChangeNotifier {
     if (jsonData != null) {
       Map dataList = jsonDecode(jsonData);
       weather = Weather.getData(dataList);
-      print("Called successfully");
-      print(jsonData);
-
 
       isLoading = false;
       notifyListeners();
@@ -36,6 +33,6 @@ class WeatherProvider extends ChangeNotifier {
   {
     location = newLocation;
     notifyListeners();
-    ApiServices.apiServices.apiCalling(location);
+    fetchData(location);
   }
 }

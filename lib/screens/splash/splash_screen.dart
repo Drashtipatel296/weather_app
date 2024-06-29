@@ -12,9 +12,9 @@ class SplashScreen extends StatelessWidget {
     WeatherProvider weatherProviderTrue = Provider.of<WeatherProvider>(context);
 
     return Scaffold(
-      backgroundColor: Color(0xff0A0E33),
+      backgroundColor: const Color(0xff0A0E33),
       body: Padding(
-        padding: const EdgeInsets.only(top: 160,left: 30),
+        padding: const EdgeInsets.only(top: 120,left: 15),
         child: Column(
           children: [
             const Text(
